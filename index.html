@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3.6: AI Whispering Your Creativity - Teacher's Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        .lesson-info {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+        .nav-buttons a {
+            display: block;
+            padding: 0.4rem 0.6rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-align: center;
+        }
+        .nav-buttons a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .content {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .section h4 {
+            color: #555;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .highlight-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .tip-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .script-box {
+            background: #fafafa;
+            border: 2px solid #ddd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        .script-label {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            font-style: normal;
+            font-weight: bold;
+        }
+        .teacher-note {
+            background: #fff9c4;
+            border-left: 4px solid #fbc02d;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .objectives-list {
+            margin: 1rem 0;
+        }
+        .objectives-list ul, .objectives-list ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        .objectives-list li {
+            margin: 0.5rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+        table tr:hover {
+            background: #f5f5f5;
+        }
+        .timeline {
+            margin: 1.5rem 0;
+        }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .timeline-time {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+        .timeline-content ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .timeline-content li {
+            margin: 0.3rem 0;
+        }
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .material-card {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .material-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .material-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .print-button:hover {
+            background: #45a049;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            .header {
+                position: relative;
+            }
+            .nav-buttons {
+                display: none;
+            }
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Lesson 3.6: AI Whispering Your Creativity</h1>
+            <div class="subtitle">Teacher's Guide | Project Day</div>
+            <div class="lesson-info">Chapter 3: Prompt Engineering</div>
+            <div class="nav-buttons">
+                <a href="#overview">📋 Overview</a>
+                <a href="#objectives">🎯 Objectives</a>
+                <a href="#materials">📦 Materials</a>
+                <a href="#preparation">🔧 Preparation</a>
+                <a href="#lesson-flow">⏱️ Lesson Flow</a>
+                <a href="#facilitation">👨‍🏫 Facilitation</a>
+                <a href="#assessment">📊 Assessment</a>
+                <a href="#differentiation">♿ Support</a>
+                <a href="#challenges">🚧 Challenges</a>
+                <a href="#reflection">💭 Reflection</a>
+            </div>
+        </div>
+
+        <button class="print-button" onclick="window.print()">🖨️ Print Guide</button>
+
+        <div class="content">
+
+            <!-- OVERVIEW SECTION -->
+            <section id="overview" class="section">
+                <h2>📋 Lesson Overview</h2>
+                
+                <div class="highlight-box">
+                    <h4>🎯 The Big Idea</h4>
+                    <p>Students apply the editorial judgment skills developed in Lessons 3.4 and 3.5 to their ongoing creative writing projects. This is a working session where students use AI as a creative partner, practicing the prompt engineering techniques from Chapter 3 while developing their stories. The focus is on <strong>iterative refinement</strong>—using the "editorial eye" to evaluate AI-generated content and guide successive prompts toward better results.</p>
+                </div>
+
+                <h3>Key Conceptual Goals</h3>
+                <p>By the end of this lesson, students should:</p>
+                <div class="objectives-list">
+                    <ul>
+                        <li><strong>Apply</strong> systematic evaluation criteria to their own creative work</li>
+                        <li><strong>Practice</strong> iterative prompting with their creative projects</li>
+                        <li><strong>Use</strong> context decisions strategically to improve AI responses</li>
+                        <li><strong>Exercise</strong> editorial judgment to select and refine AI-generated content</li>
+                        <li><strong>Reflect</strong> on the experience of creative collaboration with AI</li>
+                        <li><strong>Document</strong> their process and insights in field journals</li>
+                    </ul>
+                </div>
+
+                <h3>This Lesson in Context</h3>
+
+                <div class="success-box">
+                    <h4>✅ What Students Already Know:</h4>
+                    <ul>
+                        <li>Four basic prompt structures and iteration cycles (Lesson 3.2)</li>
+                        <li>How context decisions affect AI responses (Lesson 3.3)</li>
+                        <li>Why writing skills enable editorial judgment (Lesson 3.4)</li>
+                        <li><strong>Two Days Ago (Lesson 3.5):</strong> Systematic criteria for evaluating AI output—clarity, engagement, accuracy, completeness, audience fit</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>🔮 What This Lesson Prepares Students For:</h4>
+                    <ul>
+                        <li><strong>Tomorrow (Lesson 3.7):</strong> Discussion Day reflecting on quality and context—students will share experiences from today's creative work</li>
+                        <li><strong>Lesson 3.8:</strong> Building simulations requiring strong editorial judgment</li>
+                        <li><strong>Ongoing Creative Project:</strong> Today's work advances their story development</li>
+                        <li><strong>Chapter 4:</strong> Recognizing bias in AI output builds on editorial judgment skills</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- OBJECTIVES SECTION -->
+            <section id="objectives" class="section">
+                <h2>🎯 Learning Objectives</h2>
+
+                <h3>Content Knowledge</h3>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Students will apply evaluation criteria to assess AI-generated creative content</li>
+                        <li>Students will articulate how context decisions affect creative output quality</li>
+                        <li>Students will describe the iterative process of refining creative work with AI</li>
+                    </ul>
+                </div>
+
+                <h3>Skills & Practices</h3>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Students will prompt AI strategically for specific story elements</li>
+                        <li>Students will evaluate multiple AI responses using domain-specific criteria</li>
+                        <li>Students will make editorial decisions to select and refine content</li>
+                        <li>Students will document their creative process in field journals</li>
+                        <li>Students will iterate based on editorial judgment</li>
+                    </ul>
+                </div>
+
+                <h3>Dispositions & Mindsets</h3>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Students will develop comfort with AI as a creative partner</li>
+                        <li>Students will recognize their role as curator and director of AI output</li>
+                        <li>Students will reflect metacognitively on the creative collaboration experience</li>
+                        <li>Students will notice when they enter "flow state" during creative work</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- MATERIALS SECTION -->
+            <section id="materials" class="section">
+                <h2>📦 Materials Needed</h2>
+
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <h4>🔴 Required</h4>
+                        <ul>
+                            <li>Student access to Alia-Creative (AI creative partner)</li>
+                            <li>Field journals (physical or digital)</li>
+                            <li>Student-facing Lesson 3.6 guide</li>
+                            <li>Students' ongoing creative writing projects</li>
+                        </ul>
+                    </div>
+
+                    <div class="material-card">
+                        <h4>🟡 Recommended</h4>
+                        <ul>
+                            <li>Timer for independent work period</li>
+                            <li>Quiet/low background music (optional)</li>
+                            <li>Reference poster: Evaluation criteria from Lesson 3.5</li>
+                        </ul>
+                    </div>
+
+                    <div class="material-card">
+                        <h4>🟢 Optional</h4>
+                        <ul>
+                            <li>Noise-canceling headphones for students</li>
+                            <li>"Do Not Disturb" desk signs</li>
+                            <li>Anchor charts from Lessons 3.2, 3.3, 3.5</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PREPARATION SECTION -->
+            <section id="preparation" class="section">
+                <h2>🔧 Teacher Preparation</h2>
+
+                <h3>Before Class Starts</h3>
+
+                <div class="objectives-list">
+                    <h4>Technology Check (5 minutes before):</h4>
+                    <ul>
+                        <li>Verify all students can access Alia-Creative</li>
+                        <li>Ensure creative project artifacts are accessible</li>
+                        <li>Confirm field journals are available</li>
+                        <li>Test your own Alia access for demonstration if needed</li>
+                    </ul>
+                </div>
+
+                <div class="objectives-list">
+                    <h4>Set the Room for Deep Work:</h4>
+                    <ul>
+                        <li>Minimize potential distractions</li>
+                        <li>Consider dimming lights slightly (if possible)</li>
+                        <li>Prepare "working quietly" visual cues</li>
+                        <li>Have timer visible or ready</li>
+                    </ul>
+                </div>
+
+                <h3>Mental Preparation</h3>
+
+                <p>This is a <strong>working session</strong>. Your role is to:</p>
+                <div class="objectives-list">
+                    <ul>
+                        <li><strong>Protect the work time</strong>—guard against interruptions</li>
+                        <li><strong>Circulate quietly</strong>—observe without disrupting flow</li>
+                        <li><strong>Respond to requests</strong>—be available but not intrusive</li>
+                        <li><strong>Trust the process</strong>—students are applying skills, not learning new content</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Review Student Projects</h4>
+                    <p>If possible, know where each student is in their story development. Identify students who might need encouragement or redirection. Note who struggled with editorial judgment in Lesson 3.5.</p>
+                </div>
+            </section>
+
+            <!-- LESSON FLOW SECTION -->
+            <section id="lesson-flow" class="section">
+                <h2>⏱️ Lesson Flow & Timeline</h2>
+
+                <div class="timeline">
+                    <h3>Suggested 50-Minute Structure</h3>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:00-0:07<br>(5-7 min)</div>
+                        <div class="timeline-content">
+                            <strong>Opening: Framing the Creative Session</strong>
+                            <ul>
+                                <li>Connect to Lessons 3.4 and 3.5</li>
+                                <li>Remind students of key prompt engineering practices</li>
+                                <li>Set expectations for independent work time</li>
+                                <li>Preview field journal reflection</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:07-0:42<br>(35-40 min)</div>
+                        <div class="timeline-content">
+                            <strong>Independent Creative Work</strong>
+                            <ul>
+                                <li>Students work on their creative writing projects</li>
+                                <li>Apply editorial judgment to AI-generated content</li>
+                                <li>Iterate based on evaluation criteria</li>
+                                <li>Teacher circulates quietly, observes, and supports as needed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:42-0:50<br>(5-8 min)</div>
+                        <div class="timeline-content">
+                            <strong>Field Journal Reflection</strong>
+                            <ul>
+                                <li>Students pause and reflect on their creative experience</li>
+                                <li>Document process insights and feelings</li>
+                                <li>Consider "flow state" and engagement with the work</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">0:50-0:52<br>(2 min)</div>
+                        <div class="timeline-content">
+                            <strong>Brief Closing</strong>
+                            <ul>
+                                <li>Preview tomorrow's discussion</li>
+                                <li>Quick checkout on how it went</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FACILITATION SECTION -->
+            <section id="facilitation" class="section">
+                <h2>👨‍🏫 Detailed Facilitation Guide</h2>
+
+                <h3>Opening: Framing the Creative Session (5-7 minutes)</h3>
+
+                <div class="script-box">
+                    <div class="script-label">SUGGESTED OPENING SCRIPT</div>
+                    <p>"Welcome back. Over the past few days, you've been building crucial skills for working with AI:</p>
+                    <ul>
+                        <li><strong>Lesson 3.4:</strong> You discovered why writing skills matter—they give you the editorial judgment to recognize quality and give effective direction.</li>
+                        <li><strong>Lesson 3.5:</strong> You systematically developed your editorial eye, learning to evaluate AI output using specific criteria like clarity, engagement, accuracy, completeness, and audience fit.</li>
+                    </ul>
+                    <p>"<strong>Today, you apply those skills to YOUR creative project.</strong> This is a working session—most of our time will be independent work where you're using AI to develop your story. You'll be prompting for story elements, evaluating what AI generates, and making editorial decisions about what to keep, what to revise, and what to discard.</p>
+                    <p>"This is where prompt engineering becomes <em>practical</em>. You're not just learning about iteration—you're actually doing it. You're not just talking about editorial judgment—you're exercising it with every decision."</p>
+                </div>
+
+                <h4>Key Reminders (2-3 minutes)</h4>
+
+                <p><strong>Quick reference to best practices:</strong></p>
+
+                <div class="objectives-list">
+                    <p><strong>From Lesson 3.2 - Iteration:</strong></p>
+                    <ul>
+                        <li>"Start with a clear prompt, get a response, evaluate it in 30 seconds, then iterate"</li>
+                        <li>"You don't need perfection on the first try—that's what iteration is for"</li>
+                    </ul>
+
+                    <p><strong>From Lesson 3.3 - Context:</strong></p>
+                    <ul>
+                        <li>"Think strategically about what context helps vs. what clutters"</li>
+                        <li>"Your expertise in your own story is your advantage—use it"</li>
+                    </ul>
+
+                    <p><strong>From Lesson 3.5 - Editorial Eye:</strong></p>
+                    <ul>
+                        <li>"Use specific criteria: Is this clear? Engaging? Accurate to my vision? Complete enough? Right for my story?"</li>
+                        <li>"If something feels 'off,' identify WHAT feels off so you can prompt for improvement"</li>
+                    </ul>
+                </div>
+
+                <div class="script-box">
+                    <div class="script-label">SETTING EXPECTATIONS</div>
+                    <p>"For the next 35-40 minutes, you'll work independently on your creative projects. I'll be circulating quietly if you need help, but I won't interrupt your flow.</p>
+                    <p>"Here's what I want you to notice while you work: <strong>What does this experience feel like?</strong> Are you pulled into the creative process? Do you lose track of time? When do you feel most engaged? When does it feel like work vs. when does it feel like play?</p>
+                    <p>"We'll end with 5-8 minutes for field journal reflection about your experience. But for now—this is <em>your</em> time to create."</p>
+                </div>
+
+                <h4>Transition to Work Time (30 seconds)</h4>
+                <p>"Open your creative project. Take a deep breath. Let's create."</p>
+                <p>[Start timer. Consider playing quiet instrumental music if that helps your students focus.]</p>
+
+                <h3>Independent Creative Work (35-40 minutes)</h3>
+
+                <p><strong>Student Activities During This Time:</strong></p>
+                <div class="objectives-list">
+                    <ul>
+                        <li>Prompting AI for story elements (characters, dialogue, settings, plot points)</li>
+                        <li>Reading and evaluating AI responses</li>
+                        <li>Iterating to improve output quality</li>
+                        <li>Making editorial decisions about what to include in their stories</li>
+                        <li>Documenting especially successful prompts or interesting discoveries</li>
+                        <li>Advancing their creative projects</li>
+                    </ul>
+                </div>
+
+                <div class="teacher-note">
+                    <h4>👨‍🏫 Your Role During Work Time:</h4>
+                    <p><strong>Primary Goal:</strong> Protect the working time and allow students to enter flow state.</p>
+                    
+                    <p><strong>Circulate Strategically:</strong></p>
+                    <ul>
+                        <li>Move quietly around the room</li>
+                        <li>Pause briefly to observe what students are doing</li>
+                        <li>Look for evidence of skills application (are they iterating? evaluating? making decisions?)</li>
+                        <li>Only interrupt if a student seems truly stuck or off-task</li>
+                    </ul>
+                </div>
+
+                <h4>What to Look For:</h4>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Observable Behavior</th>
+                            <th>What It Tells You</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Multiple tabs/windows open, switching between AI and project</strong></td>
+                            <td>Student is iterating and integrating AI output</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Long pauses while reading AI responses</strong></td>
+                            <td>Student is evaluating carefully (good!)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rapid iteration (prompt → evaluate → prompt again quickly)</strong></td>
+                            <td>Editorial eye is functioning—they know what they want</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Writing in field journal during work time</strong></td>
+                            <td>Documenting insights as they occur</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scrolling back through prior responses</strong></td>
+                            <td>Making comparisons, building on earlier attempts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frustrated body language but still working</strong></td>
+                            <td>Normal creative struggle—monitor but don't interrupt</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Staring at blank screen for 5+ minutes</strong></td>
+                            <td>May need gentle check-in</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Supporting Students Without Disrupting Flow</h4>
+
+                <p>If a student raises their hand or clearly needs help, approach quietly and ask in a low voice: "What are you working on?" or "Where are you stuck?"</p>
+
+                <div class="objectives-list">
+                    <p><strong>Common issues and quick responses:</strong></p>
+                    <ul>
+                        <li><strong>"I don't know what to prompt for"</strong><br>→ "What part of your story needs development right now?"<br>→ "Look at your project outline—what's the next element you need?"</li>
+                        <li><strong>"The AI isn't giving me what I want"</strong><br>→ "Show me what you prompted and what you got. What's missing?"<br>→ "Use your evaluation criteria from Lesson 3.5—what specifically is off?"</li>
+                        <li><strong>"I can't decide which response is better"</strong><br>→ "Use your rubric from yesterday. Which is clearer? More engaging? More accurate to your vision?"</li>
+                        <li><strong>"This response is pretty good but not quite right"</strong><br>→ "That's perfect for iteration. What specific change would make it right? Tell AI exactly that."</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Avoid Over-Helping</h4>
+                    <p>The temptation during Project Days is to "teach" or "correct" too much. Resist this. Students learn by <em>doing</em> and sometimes by struggling productively.</p>
+                    <p><strong>Don't:</strong> Hover over students, offer unsolicited advice, interrupt students who are clearly engaged, make editorial decisions for them</p>
+                    <p><strong>Do:</strong> Trust the process, let productive struggle happen, respond to requests for help, note patterns to address in tomorrow's discussion</p>
+                </div>
+
+                <h4>Time Checks</h4>
+                <ul>
+                    <li><strong>At 20 minutes remaining:</strong> Quiet verbal reminder: "About 20 minutes of work time left."</li>
+                    <li><strong>At 10 minutes remaining:</strong> "Ten minutes left for creative work. Start finding a good stopping point."</li>
+                    <li><strong>At 5 minutes remaining:</strong> "Last 5 minutes. Finish your current thought and prepare to transition to reflection."</li>
+                </ul>
+
+                <h3>Field Journal Reflection (5-8 minutes)</h3>
+
+                <div class="script-box">
+                    <div class="script-label">TRANSITION TO REFLECTION</div>
+                    <p>"Alright, let's pause the creative work. Save where you are. For the next 5-8 minutes, I want you to reflect on the <em>experience</em> you just had.</p>
+                    <p>"This isn't about evaluating your story quality—that's for later. This is about noticing what the experience of working with AI felt like.</p>
+                    <p>"Open your field journals."</p>
+                </div>
+
+                <h4>Field Journal Prompts</h4>
+
+                <p><strong>Display these questions on the board or screen:</strong></p>
+
+                <div class="highlight-box">
+                    <h4>Field Journal Reflection Prompts:</h4>
+                    
+                    <p><strong>1. Flow and Engagement:</strong></p>
+                    <ul>
+                        <li><em>To what degree were you pulled into the creative process? Did you lose track of time?</em></li>
+                        <li><em>When did you feel most engaged? When did it feel like work vs. play?</em></li>
+                    </ul>
+
+                    <p><strong>2. Editorial Judgment in Action:</strong></p>
+                    <ul>
+                        <li><em>Give one example of using your editorial eye today. What did you evaluate and what decision did you make?</em></li>
+                    </ul>
+
+                    <p><strong>3. The Partnership Experience:</strong></p>
+                    <ul>
+                        <li><em>What did working with AI feel like? More like using a tool? Having a conversation? Something else?</em></li>
+                        <li><em>When was AI most helpful? When was it least helpful?</em></li>
+                    </ul>
+
+                    <p><strong>4. Process Insights:</strong></p>
+                    <ul>
+                        <li><em>What prompt engineering technique worked well today? (iteration, context decisions, specific evaluation criteria)</em></li>
+                        <li><em>What would you do differently next time?</em></li>
+                    </ul>
+
+                    <p><strong>Write for 5-8 minutes. Be specific. Use examples from your work today.</strong></p>
+                </div>
+
+                <div class="teacher-note">
+                    <h4>Why These Questions Matter:</h4>
+                    <ul>
+                        <li><strong>Flow and Engagement:</strong> Helps students notice when they're in optimal creative states, builds metacognitive awareness</li>
+                        <li><strong>Editorial Judgment:</strong> Reinforces the skills from Lesson 3.5, makes the connection between practice and application explicit</li>
+                        <li><strong>Partnership Experience:</strong> Surfaces feelings about human-AI collaboration, prepares for deeper discussions about creativity</li>
+                        <li><strong>Process Insights:</strong> Identifies what's working for individual students, creates documentation for future reference</li>
+                    </ul>
+                </div>
+
+                <p><strong>During Reflection Time:</strong> Students should write in silence. Some will write a lot, others less—both are fine. Goal is thoughtful consideration, not length.</p>
+
+                <p><strong>At 3 minutes remaining:</strong> "About 3 minutes left. Make sure you address at least 2-3 of the prompts."</p>
+
+                <h3>Brief Closing (2 minutes)</h3>
+
+                <div class="script-box">
+                    <div class="script-label">CLOSING SCRIPT</div>
+                    <p>"Thank you for your focused work today. You applied real prompt engineering skills to real creative challenges—exactly what this chapter is about.</p>
+                    <p>"<strong>Tomorrow in Lesson 3.7</strong>, we'll have a discussion about what you learned today and back in Lesson 3.5. We'll connect your quality evaluation experiences to your context decisions from Lesson 3.3. We'll also talk more about that 'back of the mind voice'—the editorial instinct that guides your work.</p>
+                    <p>"Your field journal entries from today will be the foundation for tomorrow's discussion, so what you wrote matters.</p>
+                    <p>"Any quick questions before we end?"</p>
+                </div>
+
+                <h4>Quick Checkout Options (if time allows):</h4>
+                <ul>
+                    <li>"Thumbs up if you made good progress today, thumbs sideways if it was challenging, thumbs down if you're frustrated."</li>
+                    <li>"One word that describes your creative session today—just call it out."</li>
+                    <li>"On a scale of 1-5, how engaged were you in the work? Just show me with your fingers."</li>
+                </ul>
+            </section>
+
+            <!-- ASSESSMENT SECTION -->
+            <section id="assessment" class="section">
+                <h2>📊 Assessment & Mastery Points</h2>
+
+                <h3>Today's Mastery Point Opportunity</h3>
+
+                <p><strong>Creative Work Application + Field Journal Reflection (1-2-3-4 scale)</strong></p>
+
+                <div class="highlight-box">
+                    <h4>Combined Assessment:</h4>
+                    <p>This lesson assesses:</p>
+                    <ol>
+                        <li><strong>Application of prompt engineering skills</strong> during independent work (observed)</li>
+                        <li><strong>Thoughtful field journal reflection</strong> on the creative experience (documented)</li>
+                    </ol>
+                </div>
+
+                <h4>Mastery Point Rubric:</h4>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Points</th>
+                            <th>Criteria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>4 Points<br>(Exemplary)</strong></td>
+                            <td>
+                                • Demonstrates sustained engagement during work time<br>
+                                • Shows clear evidence of iteration and editorial judgment (observable or documented)<br>
+                                • Field journal reflection is specific and insightful—addresses multiple prompts with concrete examples<br>
+                                • Makes metacognitive observations about creative process and AI partnership<br>
+                                • Connects today's experience to prior lessons (3.4, 3.5)<br>
+                                • Thoughtful consideration of "flow" and engagement
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>3 Points<br>(Proficient)</strong></td>
+                            <td>
+                                • Engages productively during work time<br>
+                                • Shows evidence of applying Chapter 3 skills (iteration, evaluation)<br>
+                                • Field journal addresses 2-3 prompts with specific details<br>
+                                • Describes the creative experience concretely<br>
+                                • Sufficient depth for tomorrow's discussion participation
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>2 Points<br>(Developing)</strong></td>
+                            <td>
+                                • Works on project but engagement varies<br>
+                                • Some evidence of skill application but inconsistent<br>
+                                • Field journal reflection is brief or general<br>
+                                • May focus on story content rather than process/experience<br>
+                                • May need prompting to contribute in tomorrow's discussion
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>1 Point<br>(Beginning)</strong></td>
+                            <td>
+                                • Minimal engagement during work time<br>
+                                • Limited evidence of applying prompt engineering skills<br>
+                                • Field journal reflection incomplete or off-topic<br>
+                                • Little metacognitive awareness of creative process<br>
+                                • Will need significant support in tomorrow's discussion
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="tip-box">
+                    <h4>💡 Assessment Philosophy for Project Days</h4>
+                    <p>Project Days assess <strong>application and process</strong>, not creative output quality. A student can write a mediocre story but demonstrate excellent prompt engineering and editorial judgment—that's what we're assessing.</p>
+                    <p><strong>Focus on:</strong> Evidence of systematic approach (iteration, evaluation), metacognitive awareness (reflection on process), engagement with the creative work, documentation of experience</p>
+                    <p><strong>Don't focus on:</strong> Story quality or creativity of the final product, writing mechanics or grammar, whether you personally like their creative choices</p>
+                </div>
+            </section>
+
+            <!-- DIFFERENTIATION SECTION -->
+            <section id="differentiation" class="section">
+                <h2>♿ Differentiation & Support</h2>
+
+                <h3>For Students Struggling to Get Started</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Support Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>"I don't know what to work on"</strong></td>
+                            <td>
+                                • "What part of your story needs development? Characters? Setting? Plot? Pick one."<br>
+                                • "Look at your project outline—what's incomplete?"<br>
+                                • "What happened in the last scene you wrote? What comes next?"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>"I don't know what to prompt"</strong></td>
+                            <td>
+                                • Reference Lesson 3.2 prompt structures<br>
+                                • "Try: 'Write a [story element] that [specific qualities]'"<br>
+                                • "Start simple—just ask for what you need"
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Perfectionism/analysis paralysis</strong></td>
+                            <td>
+                                • "Remember: iteration beats perfection. Start anywhere."<br>
+                                • "Get something on the page, even if it's not perfect. You can improve it."<br>
+                                • "Your editorial eye will tell you what needs fixing"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>For Students Who Finish Early</h3>
+
+                <p>If a student completes meaningful work before time is up:</p>
+                <ul>
+                    <li>"Excellent progress. Now iterate on what you have—make it even better."</li>
+                    <li>"Try an alternative version. Prompt for a different approach to the same story element."</li>
+                    <li>"Document in your field journal: what prompt strategies worked best for you today?"</li>
+                    <li>"Work on a different story element that needs development."</li>
+                </ul>
+
+                <p><strong>Extension:</strong> "Compare three different AI-generated versions of the same story element. Which works best? Why? Document your editorial reasoning."</p>
+
+                <h3>For Specific Learning Needs</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Need</th>
+                            <th>Accommodation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Attention challenges</strong></td>
+                            <td>
+                                • Break the 35-40 minutes into chunks (20 min work → 2 min break → 15 min work)<br>
+                                • Use fidget tools if helpful<br>
+                                • Allow standing/movement breaks<br>
+                                • Provide work-time checklist
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anxiety about open-ended creative work</strong></td>
+                            <td>
+                                • Provide specific mini-goals: "Write 2 prompts, evaluate responses, pick one"<br>
+                                • Focus on process, not product: "Just practice the skills"<br>
+                                • Allow partnership with trusted peer for first 10 minutes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Writing/typing challenges</strong></td>
+                            <td>
+                                • Allow voice-to-text for prompts<br>
+                                • Scribe support if needed<br>
+                                • Focus field journal reflection on verbal processing then transcribe
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>ESL students</strong></td>
+                            <td>
+                                • Allow native language prompting if AI supports it<br>
+                                • Focus on story development, not language mechanics<br>
+                                • Pair with supportive partner if desired
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- CHALLENGES SECTION -->
+            <section id="challenges" class="section">
+                <h2>🚧 Anticipated Challenges & Solutions</h2>
+
+                <h3>Challenge 1: Students Produce Minimal Work</h3>
+                <p><strong>If many students seem to accomplish little during work time:</strong></p>
+                <p><strong>Possible causes:</strong> Unclear about what to do, stuck on decisions, technical difficulties, avoidance/disengagement</p>
+                <p><strong>Solutions for next Project Day:</strong> Provide clearer opening directions with specific starting points, build in a 5-minute mid-session check-in to troubleshoot, offer more structured prompts or sentence stems, individual conferences to identify blockers</p>
+
+                <h3>Challenge 2: Students Get Off-Task</h3>
+                <p><strong>In the moment:</strong> Quiet redirect: "I notice you're [doing X]. Let's get back to your project." or "What's preventing you from working right now?"</p>
+                <p><strong>For next time:</strong> Clearer expectations about device use, visual cues (timer, progress tracker), more frequent circulation, consider reducing work time length if attention is unsustainable</p>
+
+                <h3>Challenge 3: Technical Issues with Alia-Creative</h3>
+                <p><strong>Immediate response:</strong> Have backup activity ready (work on story without AI, plan next prompts on paper). Allow students to work on character development, plot outlines, or setting descriptions manually. Document the issue for tech support.</p>
+
+                <h3>Challenge 4: Students Struggle with "Flow" Reflection</h3>
+                <p><strong>Provide sentence stems:</strong></p>
+                <ul>
+                    <li>"I felt most engaged when..."</li>
+                    <li>"Time seemed to pass quickly/slowly when I was..."</li>
+                    <li>"Working with AI felt like..."</li>
+                    <li>"The hardest part was... The easiest part was..."</li>
+                </ul>
+
+                <h3>Challenge 5: Wide Variance in Progress</h3>
+                <p>This is normal for creative work. Different students work at different paces. Focus assessment on <em>process</em> not <em>output</em>. Tomorrow's discussion can accommodate different experiences. Trust that application happens at individual pace.</p>
+            </section>
+
+            <!-- REFLECTION SECTION -->
+            <section id="reflection" class="section">
+                <h2>💭 Teacher Reflection</h2>
+
+                <h3>After Teaching This Lesson</h3>
+
+                <p><strong>What worked:</strong></p>
+                <ul>
+                    <li>Did students engage productively during work time?</li>
+                    <li>What evidence showed skill application?</li>
+                    <li>Were field journal reflections thoughtful and specific?</li>
+                </ul>
+
+                <p><strong>What needs adjustment:</strong></p>
+                <ul>
+                    <li>Pacing—was work time the right length?</li>
+                    <li>Support—did students need more/less guidance?</li>
+                    <li>Reflection—did the prompts elicit useful insights?</li>
+                </ul>
+
+                <p><strong>Notes for next Project Day:</strong></p>
+                <ul>
+                    <li>Which students need additional support?</li>
+                    <li>What opening reminders would help?</li>
+                    <li>Should work time be structured differently?</li>
+                </ul>
+
+                <p><strong>Preparing for Lesson 3.7:</strong></p>
+                <ul>
+                    <li>Review field journals to identify discussion themes</li>
+                    <li>Note interesting insights to highlight</li>
+                    <li>Identify students who can share productive examples</li>
+                    <li>Plan discussion questions based on what you observed today</li>
+                </ul>
+
+                <h3>🎯 Looking Ahead: Lesson 3.7 Preview</h3>
+
+                <p>Tomorrow's Discussion Day will process today's experiences. Students will:</p>
+                <ul>
+                    <li>Share insights from creative work</li>
+                    <li>Connect quality evaluation (3.5) to context decisions (3.3)</li>
+                    <li>Discuss the "back of the mind voice" that guides iteration</li>
+                    <li>Build shared understanding of effective AI partnership in creative work</li>
+                </ul>
+
+                <p><strong>Bridge to tomorrow:</strong> "Your experiences today—what worked, what didn't, what surprised you—will be our discussion material tomorrow. Come ready to share."</p>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
